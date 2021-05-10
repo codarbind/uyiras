@@ -1,0 +1,10 @@
+{
+    "display": "standalone",
+    "name": "Uyiras 🎙",
+    "short_name": "Uyiras 🎧",
+    "description": "Uyiras help you to cram and memorize lessons in verbatim - word for word.",
+    "start_url": "/home",
+    "orientation": "natural",
+    "lang": "en",
+    "background_color": "#b5651d"
+}
