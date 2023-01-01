@@ -51,6 +51,8 @@ window.onload = function() {
 
   // Define the addData() function
   function addData(e) {
+    //inject the compare button with its function
+
     // prevent default - we don't want the form to submit in the conventional way
     e.preventDefault();
 
@@ -109,7 +111,9 @@ window.onload = function() {
 
         listItem.appendChild(h3);
         listItem.appendChild(para);
+        listItem.className ='noteList'
         list.appendChild(listItem);
+        
 
         // Put the data from the cursor inside the h3 and para
         h3.textContent = cursor.value.title;
@@ -124,9 +128,17 @@ window.onload = function() {
         listItem.appendChild(deleteBtn);
         deleteBtn.textContent = 'Delete';
 
+        // Create a compare button and place it inside each listItem
+        const compareBtn = window.document.createElement('button');
+        listItem.appendChild(compareBtn);
+        compareBtn.textContent = 'Compare';
+        compareBtn.setAttribute('id',cursor.value.id)
+      
+
         // Set an event handler so that when the button is clicked, the deleteItem()
         // function is run
         deleteBtn.onclick = deleteItem;
+        compareBtn.onclick = getNoteId;
 
         // Iterate to the next item in the cursor
         cursor.continue();
@@ -169,6 +181,11 @@ window.onload = function() {
         list.appendChild(listItem);
       }
     };
+  }
+
+  function getNoteId(e){
+    return e.target.parentNode.parentNode.querySelector('ul>li').getAttribute('data-note-id')
+
   }
 
 };
